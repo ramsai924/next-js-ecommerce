@@ -1,11 +1,11 @@
 import React from 'react'
 import Category from './category'
 
-function CategoryList() {
+function CategoryList({ categories }: any) {
   return (
-    <div className='grid grid-cols-products-grid gap-4 py-10'>
+    <div className='grid grid-cols-products-grid gap-3.5 py-10'>
         {
-            new Array(10).fill('').map((_: any, i: number) => <Category />)
+            categories.map((category: any, i: number) => <Category key={i} category={category}/>)
         }
     </div>
   )

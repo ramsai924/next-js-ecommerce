@@ -8,10 +8,10 @@ function ProductDetails({ params }: any) {
   return (
     <div className='relative flex flex-col gap-4 py-4'>
         <div className='absolute top-[32px] left-[24px]'>
-            <AddToFavourite />
+            <AddToFavourite product={null} />
         </div>
         <div className='max-w-[400px] max-h-[400px] border border-gray-1 py-4 rounded'>
-            <Image className='object-contain' src={Product} alt={`product-${params.id}`} />
+            <Image priority className='object-contain' src={Product} alt={`product-${params.id}`} />
         </div>
         <div className='flex flex-col gap-4'>
             <p className='text-4xl font-bold'>Banane</p>
@@ -20,7 +20,7 @@ function ProductDetails({ params }: any) {
         <div className='flex flex-col gap-4'>
             <p className='text-xl font-semibold'>40$</p>
             <div className='h-[30px]'>
-                <AddToCart />
+                <AddToCart product={null}/>
             </div>
         </div>
     </div>

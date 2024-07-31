@@ -2,12 +2,16 @@ import React from 'react'
 import CartItem from './CartItem'
 import { Button } from '../ui/button'
 
-function CarList() {
+function CarList({ products }: any) {
+    console.log('products', products)
+    if(!products || products?.length === 0){
+        return null
+    }
   return (
     <div className={`flex flex-col gap-4`}>
         <div className='flex flex-col gap-3 my-3'>
             {
-                new Array(5).fill('').map((_:any, i: number) => <CartItem key={i} />)
+                products.map((product:any, i: number) => <CartItem product={product} key={i} />)
             }
         </div>
         <hr />

@@ -3,8 +3,12 @@ import { Input } from "@/components/ui/input"
 import { Heart, Search, ShoppingCart, TextSearch } from 'lucide-react'
 import Link from 'next/link'
 import AvatarComponent from '../Avatar'
+import CartItem from './cartItem'
+import { getUserCart } from '@/actions/cart'
+import FavItem from './FavItem'
 
-function Header() {
+async function Header() {
+  const response = await getUserCart()
   return (
     <div className='p-4 px-8 border border-grey border-solid border-1'>
         <div className='w-[100%] grid grid-cols-1 md:grid-cols-3 justify-center'>
@@ -23,13 +27,11 @@ function Header() {
               Expore
             </Link>
             <Link className='flex flex-col items-center text-sm font-semibold' href={'/cart'}>
-              <ShoppingCart absoluteStrokeWidth/>
-              Cart
+                <ShoppingCart absoluteStrokeWidth/>
+                Cart {response && response?.length > 0 ? response[0].products.length : ''}
+                <CartItem userCart={response}/>
             </Link>
-            <Link className='flex flex-col items-center text-sm font-semibold' href={'/favourite'}>
-              <Heart absoluteStrokeWidth/>
-              Favourite
-            </Link>
+            <FavItem />
              <AvatarComponent />
           </div>
         </div>

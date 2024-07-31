@@ -1,7 +1,10 @@
+import { getCategoryList } from '@/actions/category'
 import CategoryList from '@/components/Categories'
 import React from 'react'
 
-function Explore() {
+async function Explore() {
+  const categoryList = await getCategoryList()
+
   return (
     <div className='w-[100%] flex flex-col gap-4 p-2'>
         <div className='p-6'>
@@ -9,7 +12,7 @@ function Explore() {
         </div>
         <div className='w-[100%] md:w-[80%] mx-auto'>
             <hr />
-            <CategoryList />
+            <CategoryList categories={categoryList} />
         </div>
     </div>
   )

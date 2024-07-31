@@ -27,10 +27,15 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "circle": {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(180deg)' }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "loader-circle": "circle 0.5s infinite"
       },
       fontFamily: {
         Robot: ['Roboto', 'serif']
@@ -53,7 +58,7 @@ const config = {
         'header-grid': 'repeat(3, 1fr)',
       },
       boxShadow: {
-        'product-shadow': 'rgba(0, 0, 0, 0.1) 0px 4px 12px;'
+        'product-shadow': 'rgba(0, 0, 0, 0.1) 0px 4px 12px'
       }
     },
   },
